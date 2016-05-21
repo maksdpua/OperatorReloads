@@ -41,7 +41,7 @@ i
 i += 1
 
 
-func += (inout a: Point) -> Point {
+prefix func ++ (inout a: Point) -> Point {
     a.x += 1
     a.y += 1
     return a
@@ -49,7 +49,7 @@ func += (inout a: Point) -> Point {
 
 postfix func ++ (inout a: Point) -> Point {
     let b = a
-    ++a
+    a++
     return b
 }
 
@@ -57,7 +57,41 @@ p1 = Point(x: 2, y: 3)
 p2 = Point(x: 3, y: 5)
 
 
-p1 += p1
+//p1 += p1
+
+i = 7
+
+
+
+//if (p1++).x == 8 {
+//    print("8")
+//} else {
+//    print("not 8")
+//}
+
+p1 = Point(x: 2, y: 3)
+p2 = Point(x: 3, y: 5)
+
+//p1++ + p2++
+//
+//p1++ + ++p2
+//
+//p1
+//p2
+
+//%%%
+
+infix operator %%% {}
+
+func %%% (inout a: Point, b: Point) -> Point {
+    a.x += b.y
+    a.y -= b.x
+    return a
+}
+
+p1 %%% p2
+
+
 
 
 
